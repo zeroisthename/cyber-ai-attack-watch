@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cyber &amp; AI Attack Watch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+  </head>
+  <body>
+    <div class="page" id="top">
+      <header class="nav glass" data-auto></header>
+      <main class="main">
+        <section class="hero">
+          <img class="hero__img" src="hero.jpg" alt="A dark server room crossed by red and cyan intrusion light trails" />
+          <div class="hero__copy">
+            <p class="hero__eyebrow">Living tracker · Last updated 23 October 2026 (IST)</p>
+            <h1>Cyber &amp; AI Attack Watch</h1>
+            <p class="hero__sub">The cyberattacks and AI-driven attacks happening right now, each paired with its researched, vendor-confirmed fix.</p>
+            <p class="hero__meta">Maintained by Yashwin + Hark · every fix links to its primary source</p>
+          </div>
+          <aside class="callout" aria-label="Next step">
+            <p class="callout__head"><span class="hark-mark" data-size="16"></span> Next step</p>
+            <p class="callout__lead"><strong>Check the Patch now table against the tools you run.</strong> All ten flaws are being exploited in the wild.</p>
+            <a class="btn" href="#patch">Patch now</a>
+          </aside>
+        </section>
+
+        <section class="section" id="numbers" data-nav="Numbers">
+          <div class="head">
+            <p class="head__eyebrow">As of 22 Oct 2026</p>
+            <h2>October is on pace to pass September's ransomware count.</h2>
+          </div>
+          <section class="stats">
+            <div class="stat"><span class="stat__fig">769</span><span class="stat__label">Ransomware victims claimed on leak sites in October so far (891 in all of September)</span></div>
+            <div class="stat"><span class="stat__fig">71</span><span class="stat__label">Active ransomware groups this month; top three N0n (134), thegentlemen (89), qilin (83)</span></div>
+            <div class="stat"><span class="stat__fig">2,900/min</span><span class="stat__label">Sign-in attempts by the AI-driven ARTEX campaign against Microsoft 365 tenants</span></div>
+            <div class="stat"><span class="stat__fig">&lt;3 hrs</span><span class="stat__label">Fastest time from first targeting to privileged cloud access in AI-driven attacks (Microsoft)</span></div>
+          </section>
+          <p class="fineprint">Ransomware figures: <a class="link" href="https://hackerfeeds.com/ransomware/reports/2026-10" target="_blank" rel="noopener">HackerFeeds October 2026 report</a>.</p>
+        </section>
+
+        <section class="section" id="attacks" data-nav="AI attacks">
+          <div class="head">
+            <p class="head__eyebrow">Newest first</p>
+            <h2>AI-driven attacks, and exactly how to shut each one down.</h2>
+          </div>
+          <div class="steps">
+            <!-- ============================================================
+                 ADD NEW ATTACKS HERE (newest first)
+                 Copy one <article class="step"> block below and paste it
+                 directly under this comment. Each block holds:
+                 date (step__num + step__eyebrow), title (h3), what happened (p),
+                 fix checklist (ul.checklist), and a side panel with
+                 type tag (AI-DRIVEN / CLASSIC / AI SUPPLY CHAIN), who's affected, source.
+                 ============================================================ -->
+
+            <!-- ATTACK: Storm-0940 / ARTEX / ConnectWise -->
+            <article class="step">
+              <div class="step__intro"><p class="step__num">21</p><p class="step__eyebrow">Oct 2026</p></div>
+              <div>
+                <h3>Storm-0940 uses ARTEX agentic AI in ConnectWise supply-chain hack</h3>
+                <ul class="step__pills"><li><b>2,250+</b> tenants targeted</li><li><b>2,900</b> attempts/min</li><li><b>162</b> confirmed compromised</li></ul>
+                <p>A China-state-aligned group used ARTEX, an open-source multi-agent AI penetration-testing framework, to automate scanning, password spraying and OAuth app abuse. After compromising ConnectWise Cloud Backup (formerly SkyKick) app identities, it tried to sign in to 2,250+ Microsoft 365 tenants; Huntress confirmed 162 compromised tenants in its view.</p>
+                <ul class="checklist">
+                  <li><span class="checklist__item">Keep ConnectWise app connections disabled <small>Until ConnectWise publishes restoration steps</small></span></li>
+                  <li><span class="checklist__item">Don't delete the enterprise apps first <small>Preserve the evidence</small></span></li>
+                  <li><span class="checklist__item">Search tenants by app ID <small>506e08f9-6e9a-4da4-942b-a099a03644ae, 24205314-2b89-4e07-a2a4-579e898a5640, 0de14c77-b9b0-4137-9360-34878a929827</small></span></li>
+                  <li><span class="checklist__item">Review service-principal sign-ins <small>From at least 15 Oct, ideally 1 Oct</small></span></li>
+                  <li><span class="checklist__item">Look for new app credentials, role assignments, consent grants, inbox and forwarding rules</span></li>
+                  <li><span class="checklist__item">Block IPs <small>144.172.64.99, 144.172.64.60, 144.172.64.128</small></span></li>
+                  <li><span class="checklist__item">Apply least privilege to multi-tenant apps</span></li>
+                </ul>
+              </div>
+              <dl class="step__panel">
+                <dt>Type</dt><dd><span class="chip chip--solid">AI-DRIVEN</span></dd>
+                <dt>Who's affected</dt><dd>Orgs that ever authorized the ConnectWise Cloud Backup, ConnectWise MS Teams or ConnectWise MS Graph apps</dd>
+                <dt>Source</dt><dd><a class="btn" href="https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/" target="_blank" rel="noopener">Microsoft</a></dd>
+              </dl>
+            </article>
+
+            <!-- ATTACK: AI-assisted global hacking campaign -->
+            <article class="step">
+              <div class="step__intro"><p class="step__num">21</p><p class="step__eyebrow">Oct 2026</p></div>
+              <div>
+                <h3>AI-assisted global hacking campaign using Claude Code, Codex, Grok and DeepSeek</h3>
+                <p>Zscaler ThreatLabz found attackers chaining several AI coding agents (with ARTEX on DeepSeek) that split tasks, reviewed each other's work and kept context across accounts; prompts sought bulk personal and transaction data to sell. Palo Alto Unit 42 separately documented an actor using AI to plan intrusions, including exfiltrating a MongoDB database from an Indian public university.</p>
+                <ul class="checklist">
+                  <li><span class="checklist__item">Lock down internet-facing databases <small>No public MongoDB; require authentication</small></span></li>
+                  <li><span class="checklist__item">Enforce MFA and rate limiting on logins</span></li>
+                  <li><span class="checklist__item">Monitor for machine-speed parallel logins from one IP</span></li>
+                  <li><span class="checklist__item">Rotate exposed keys</span></li>
+                </ul>
+              </div>
+              <dl class="step__panel">
+                <dt>Type</dt><dd><span class="chip chip--solid">AI-DRIVEN</span></dd>
+                <dt>Who's affected</dt><dd>Anyone with exposed databases or logins without MFA and rate limits</dd>
+                <dt>Sources</dt>
+                <dd><a class="btn" href="https://www.zscaler.com/blogs/security-research/inside-global-ai-assisted-hacking-campaign" target="_blank" rel="noopener">Zscaler</a> <a class="btn" href="https://unit42.paloaltonetworks.com/ai-assisted-cybercrime-analysis/" target="_blank" rel="noopener">Unit 42</a></dd>
+              </dl>
+            </article>
+
+            <!-- ATTACK: Malicious LiteLLM 1.107.0 -->
+            <article class="step">
+              <div class="step__intro"><p class="step__num">21</p><p class="step__eyebrow">Oct 2026</p></div>
+              <div>
+                <h3>Malicious LiteLLM 1.107.0 on PyPI steals AI and cloud credentials</h3>
+                <ul class="step__pills"><li><b>~2</b> hours live</li><li>Safe: <b>1.106.2</b></li></ul>
+                <p>For about two hours the AI gateway library shipped a release with a credential stealer and an hourly backdoor that runs on any Python start, even without importing litellm. It grabbed SSH keys, cloud creds, CI secrets, browser passwords, AI coding tool tokens and LLM provider API keys. It was released via stolen GitHub CLI OAuth tokens.</p>
+                <ul class="checklist">
+                  <li><span class="checklist__item">Pin litellm==1.106.2</span></li>
+                  <li><span class="checklist__item">If 1.107.0 was installed, delete cook.pth, cook.py and sitecustomize.py from site-packages <small>Before running pip</small></span></li>
+                  <li><span class="checklist__item">Kill the background Python process, then rebuild the environment</span></li>
+                  <li><span class="checklist__item">Rotate every cloud role, proxy DB password, master key and provider API key</span></li>
+                  <li><span class="checklist__item">Check Docker pulls of the latest, main-latest and main-stable tags</span></li>
+                </ul>
+              </div>
+              <dl class="step__panel">
+                <dt>Type</dt><dd><span class="chip chip--solid">AI SUPPLY CHAIN</span></dd>
+                <dt>Who's affected</dt><dd>Anyone who installed LiteLLM 1.107.0 or pulled its affected Docker tags</dd>
+                <dt>Source</dt><dd><a class="btn" href="https://tsnmedia.org/litellm-pypi-compromise/" target="_blank" rel="noopener">TSN Media</a></dd>
+              </dl>
+            </article>
+
+            <!-- ATTACK: Prompt injection via MCP -->
+            <article class="step">
+              <div class="step__intro"><p class="step__num">Oct</p><p class="step__eyebrow">2026</p></div>
+              <div>
+                <h3>Prompt injection against AI agents via MCP</h3>
+                <p>Google and four other orgs acknowledged agent flaws where hidden instructions in content hijack AI agents. Because MCP servers store credentials for every tool, one injection can exfiltrate data. Salesforce Agentforce was hijacked through unauthenticated Web-to-Lead form text.</p>
+                <ul class="checklist">
+                  <li><span class="checklist__item">Treat all content an agent reads as untrusted</span></li>
+                  <li><span class="checklist__item">Give agents least-privilege, scoped credentials</span></li>
+                  <li><span class="checklist__item">Require human approval for sends, payments and deletions</span></li>
+                  <li><span class="checklist__item">Separate read tools from write tools</span></li>
+                  <li><span class="checklist__item">Log every tool call</span></li>
+                </ul>
+              </div>
+              <dl class="step__panel">
+                <dt>Type</dt><dd><span class="chip chip--solid">AI-DRIVEN</span></dd>
+                <dt>Who's affected</dt><dd>Teams running AI agents connected to tools through MCP, including Salesforce Agentforce</dd>
+                <dt>Source</dt><dd><a class="btn" href="https://arstechnica.com/security/2026/10/vulnerability-in-agents-from-google-and-others-exposes-structural-flaw-in-mcp" target="_blank" rel="noopener">Ars Technica</a></dd>
+              </dl>
+            </article>
+
+            <!-- ATTACK: Deepfake voice fraud, Fideuram -->
+            <article class="step">
+              <div class="step__intro"><p class="step__num">Sep</p><p class="step__eyebrow">Reported Sep–Oct 2026</p></div>
+              <div>
+                <h3>Deepfake voice fraud tricks Fideuram (Intesa Sanpaolo) into ~$100M+ in transfers</h3>
+                <ul class="step__pills"><li><b>~$60M</b> recovered</li><li><b>~$40M</b> missing</li></ul>
+                <p>Attackers sent a WhatsApp message impersonating the CEO, then used an AI-cloned voice of a law-firm partner to "confirm" urgent transfers.</p>
+                <ul class="checklist">
+                  <li><span class="checklist__item">Verify any payment request by calling back on a number you already have</span></li>
+                  <li><span class="checklist__item">Require two-person approval for large transfers</span></li>
+                  <li><span class="checklist__item">Agree a family or company code word</span></li>
+                  <li><span class="checklist__item">Never treat a voice or video call as proof of identity</span></li>
+                </ul>
+              </div>
+              <dl class="step__panel">
+                <dt>Type</dt><dd><span class="chip chip--solid">AI-DRIVEN</span></dd>
+                <dt>Who's affected</dt><dd>Finance teams and anyone who approves transfers by message or phone</dd>
+                <dt>Source</dt><dd><a class="btn" href="https://www.techtarget.com/cybersecurity/news/366651907/Beyond-Arup-CISOs-combat-escalating-deepfake-fraud" target="_blank" rel="noopener">TechTarget</a></dd>
+              </dl>
+            </article>
+            <!-- ======================= END OF ATTACK ENTRIES ======================= -->
+          </div>
+        </section>
+
+        <section class="section" id="patch" data-nav="Patch now">
+          <div class="head">
+            <p class="head__eyebrow">Patch now</p>
+            <h2>Ten flaws attackers are actively exploiting. Update if you run any of these.</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th scope="col">Product</th><th scope="col">CVE</th><th scope="col">What it lets attackers do</th><th scope="col">Fixed in</th><th scope="col">Source</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Plex Media Server <small>Plex2Shell</small></th><td>CVE-2026-96652, -96654, -96655, -96656</td><td>Chained unauthenticated takeover and code execution; crypto miners seen</td><td class="num">1.43.3.10861</td><td><a class="link" href="https://appsecnews.com/news/cisa-kev-plex2shell-siemens-siteguard-exploited" target="_blank" rel="noopener">AppSec News</a></td></tr>
+                <tr class="is-highlight"><th scope="row">GitLab self-managed <small>CVSS 10</small></th><td>CVE-2026-110264</td><td>Unauthenticated code execution, all versions since 7.0</td><td>19.5.1, 19.4.3, 19.3.6, 19.2.9, 19.1.9, 19.0.10, 18.11.13</td><td><a class="link" href="https://appsecnews.com/news/gitlab-cve-2026-110264-cvss-10-unauthenticated-rce" target="_blank" rel="noopener">AppSec News</a></td></tr>
+                <tr><th scope="row">Arista VeloCloud Orchestrator <small>On-prem · CVSS 9.9</small></th><td>CVE-2026-114625</td><td>Any logged-in user becomes superuser operator</td><td>5.2.3.18, 6.1.3.10, 6.4.2.12 <small>Also block 74.82.197.86 and 38.54.50.151</small></td><td><a class="link" href="https://tsnmedia.org/arista-velocloud-orchestrator-zero-day/" target="_blank" rel="noopener">TSN Media</a></td></tr>
+                <tr><th scope="row">Ivanti Connect Secure</th><td>CVE-2026-104935</td><td>Unauthenticated command execution, credential theft</td><td>25.1.1.2, 25.1.3.0/25.1.3.1, 22.8R2.5 <small>One chain link still unpatched: hunt for compromise</small></td><td><a class="link" href="https://datawater.com/cisa-kev-weekly-roundup-october-16-2026/" target="_blank" rel="noopener">Datawater</a></td></tr>
+                <tr><th scope="row">Cisco Secure Email Gateway <small>CVSS 9.8</small></th><td>CVE-2026-76519</td><td>Crafted attachment gives root</td><td>Content Scanner Tools 25.3.0.5525+</td><td><a class="link" href="https://datawater.com/cisa-kev-weekly-roundup-october-16-2026/" target="_blank" rel="noopener">Datawater</a></td></tr>
+                <tr><th scope="row">Windows Shell</th><td>CVE-2026-96951</td><td>Mark-of-the-Web bypass: malicious files open without warnings</td><td>October 2026 Patch Tuesday</td><td><a class="link" href="https://datawater.com/cisa-kev-weekly-roundup-october-16-2026/" target="_blank" rel="noopener">Datawater</a></td></tr>
+                <tr><th scope="row">Palo Alto PAN-OS</th><td>CVE-2026-0322</td><td>Root on the firewall with valid credentials</td><td>12.2.4+, 11.2.16+ <small>Keep management off the internet</small></td><td><a class="link" href="https://datawater.com/cisa-kev-weekly-roundup-october-16-2026/" target="_blank" rel="noopener">Datawater</a></td></tr>
+                <tr><th scope="row">Atlassian Data Center <small>CVSS 9.3</small></th><td>CVE-2026-21589</td><td>Unauthenticated file read; can leak Crowd credentials</td><td>Confluence 9.2.26/10.2.19, Jira 9.12.40/10.3.26/11.3.12, Bitbucket 9.4.26/10.2.8/10.5.1</td><td><a class="link" href="https://datawater.com/cisa-kev-weekly-roundup-october-16-2026/" target="_blank" rel="noopener">Datawater</a></td></tr>
+                <tr><th scope="row">AhsayCBS</th><td>CVE-2026-105133/105134</td><td>SYSTEM access on the backup console</td><td>Hotfix 10.3.4.45 or 9.15.2.70</td><td><a class="link" href="https://datawater.com/cisa-kev-weekly-roundup-october-16-2026/" target="_blank" rel="noopener">Datawater</a></td></tr>
+                <tr><th scope="row">Siemens Software Center</th><td>CVE-2026-110936</td><td>DLL side-loading used in ClickFix fake-CAPTCHA attacks</td><td>4.0.9.8 <small>Auto-updates</small></td><td><a class="link" href="https://appsecnews.com/news/cisa-kev-plex2shell-siemens-siteguard-exploited" target="_blank" rel="noopener">AppSec News</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section" id="breaches" data-nav="Breaches">
+          <div class="head">
+            <p class="head__eyebrow">October 2026</p>
+            <h2>Major breaches this month, newest first.</h2>
+          </div>
+          <ol class="timeline">
+            <li class="is-current"><p class="timeline__when">22 Oct</p><div class="timeline__what">Railway says an attacker may have decrypted some customer environment variables.</div><p><span class="chip chip--solid">Rotate all secrets</span></p></li>
+            <li><p class="timeline__when">22 Oct</p><div class="timeline__what">Capcom ID breach exposed 11,774,247 email records; attackers changed 196 passwords.</div></li>
+            <li><p class="timeline__when">22 Oct</p><div class="timeline__what">GMO Onamae.com Desktop Cloud halted; 26,739 servers may be affected.</div></li>
+            <li><p class="timeline__when">21 Oct</p><div class="timeline__what">NEC says a hacked contractor's credentials were used to encrypt customers' servers.</div></li>
+            <li><p class="timeline__when">21 Oct</p><div class="timeline__what">Stolen UpdraftCentral keys used to backdoor WordPress sites.</div><p><span class="chip chip--solid">Update, delete old keys</span></p></li>
+            <li><p class="timeline__when">20 Oct</p><div class="timeline__what">Qilin and Inc ransomware exploiting the months-old Palo Alto GlobalProtect flaw CVE-2026-0257.</div></li>
+            <li><p class="timeline__when">17 Oct</p><div class="timeline__what">Yamato Transport: ~5.26M pay-later customer records taken.</div></li>
+            <li><p class="timeline__when">15 Oct</p><div class="timeline__what">Burger King Japan app: ~11.18M member records leaked.</div></li>
+            <li><p class="timeline__when">7–9 Oct</p><div class="timeline__what">Qilin ransomware hits SoftBank's IDC Frontier; JR East/Viewcard ~6.09M accounts may be exposed.</div></li>
+          </ol>
+          <p class="fineprint">Source: <a class="link" href="https://tsnmedia.org/ransomware-cyber-attacks-hub/" target="_blank" rel="noopener">TSN Media ransomware and cyber attacks hub</a>.</p>
+        </section>
+
+        <section class="section" id="protect" data-nav="Protect">
+          <div class="head">
+            <p class="head__eyebrow">Evergreen checklist</p>
+            <h2>Nine habits that blunt most of the attacks on this page.</h2>
+          </div>
+          <div class="steps">
+            <article class="step"><div class="step__intro"><p class="step__num">01</p></div><div><h3>Turn on automatic updates</h3><p>For OS, browser, apps and self-hosted servers. Check the <a class="link" href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA KEV catalog</a> weekly.</p></div></article>
+            <article class="step"><div class="step__intro"><p class="step__num">02</p></div><div><h3>Use phishing-resistant MFA</h3><p>Passkeys or hardware keys, everywhere they're offered.</p></div></article>
+            <article class="step"><div class="step__intro"><p class="step__num">03</p></div><div><h3>Use a password manager and unique passwords</h3><p>Check your exposure at <a class="link" href="https://haveibeenpwned.com/" target="_blank" rel="noopener">Have I Been Pwned</a>.</p></div></article>
+            <article class="step"><div class="step__intro"><p class="step__num">04</p></div><div><h3>Never paste commands from a "verify you're human" prompt</h3><p>That's the ClickFix trick.</p></div></article>
+            <article class="step"><div class="step__intro"><p class="step__num">05</p></div><div><h3>Pin and verify dependencies</h3><p>Enable lockfiles and 2FA on package and GitHub accounts; rotate tokens after any supply-chain alert.</p></div></article>
+            <article class="step"><div class="step__intro"><p class="step__num">06</p></div><div><h3>Give AI agents least privilege</h3><p>Require human approval for sends, payments and deletes.</p></div></article>
+            <article class="step"><div class="step__intro"><p class="step__num">07</p></div><div><h3>Verify money or credential requests out-of-band</h3><p>Deepfake voices and video are now cheap.</p></div></article>
+            <article class="step"><div class="step__intro"><p class="step__num">08</p></div><div><h3>Keep admin consoles off the public internet</h3><p>VPN, firewall, backup, GitLab, Plex.</p></div></article>
+            <article class="step"><div class="step__intro"><p class="step__num">09</p></div><div><h3>Keep offline or immutable backups</h3><p>And test your restores.</p></div></article>
+          </div>
+        </section>
+
+        <section class="section" id="sources" data-nav="Sources">
+          <div class="head"><h2>How this page is updated.</h2></div>
+          <div class="prose">
+            <p>Entries come from vendor advisories, CISA KEV, Microsoft, Zscaler, Unit 42 and established security press. Hark checks for new attacks and appends researched fixes; contributions are welcome via GitHub pull request.</p>
+          </div>
+        </section>
+      </main>
+      <footer class="foot">
+        <p>Cyber &amp; AI Attack Watch · maintained by Yashwin + Hark · last updated 23 October 2026 (IST).</p>
+        <nav aria-label="Back to sections" data-auto></nav>
+        <a class="badge" href="https://hark.com/" target="_blank" rel="noopener"><span class="hark-mark"></span><span>built by hark</span></a>
+      </footer>
+    </div>
+    <script src="hark.js"></script>
+  </body>
+</html>
